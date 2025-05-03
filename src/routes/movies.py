@@ -1,11 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy import select, func
 from sqlalchemy.ext.asyncio import AsyncSession
+from math import ceil
 
 from database import get_db, MovieModel
 from schemas import MovieDetailResponseSchema, MovieListResponseSchema
 
 router = APIRouter()
+
 
 @router.get(
     "/movies/",
